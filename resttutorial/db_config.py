@@ -1,0 +1,2 @@
+DATABASE_CONFIG = 'postgres://rtimelketxiiwn:23ddbbaa4191b9d9ba9438bb60c150fb5af30fae3f17689b6a190126d754be3a@ec2-107-22-167-179.compute-1.amazonaws.com:5432/db5l3a4e8tra8h'
+DATABASE_CONN_MAX_AGE = 0  # No persistent connections.

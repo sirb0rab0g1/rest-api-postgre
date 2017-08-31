@@ -27,10 +27,7 @@ SECRET_KEY = '2^ze-df4ad^$o4dc#+mncx2)fb9r@9f_-frs_1s_sd6=g##ws4'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'my-rest-api-postgre.herokuapp.com',
-    'sirb0rab0g1.github.io/angularjs4-tutorial',
-    'localhost',
-    '127.0.0.1'
+    '*'
 ]
 
 # Application definition
@@ -95,8 +92,10 @@ WSGI_APPLICATION = 'resttutorial.wsgi.application'
 # Database 
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASE_CONFIG = 'postgres://rtimelketxiiwn:23ddbbaa4191b9d9ba9438bb60c150fb5af30fae3f17689b6a190126d754be3a@ec2-107-22-167-179.compute-1.amazonaws.com:5432/db5l3a4e8tra8h'
-DATABASE_CONN_MAX_AGE = 0  # No persistent connections.
+try:
+    from .db_config import *
+except ImportError:
+    pass
 
 DATABASES = {'default': dj_database_url.config(default=DATABASE_CONFIG)}
 DATABASES['default']['CONN_MAX_AGE'] = DATABASE_CONN_MAX_AGE
