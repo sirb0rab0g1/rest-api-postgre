@@ -102,7 +102,7 @@ DATABASES = {
         'USER': 'admin',
         'PASSWORD': 'password',
         'HOST': 'my-rest-api-postgre.herokuapp.com',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
