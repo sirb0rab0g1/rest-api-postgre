@@ -26,6 +26,8 @@ SECRET_KEY = '2^ze-df4ad^$o4dc#+mncx2)fb9r@9f_-frs_1s_sd6=g##ws4'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'my-rest-api-postgre.herokuapp.com',
+    'sirb0rab0g1.github.io/angularjs4-tutorial',
     'localhost',
     '127.0.0.1'
 ]
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'corsheaders'
 ]
 
 REST_FRAMEWORK = {
@@ -61,6 +64,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
 ]
 
 ROOT_URLCONF = 'resttutorial.urls'
@@ -137,3 +142,37 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
+CORS_ORIGIN_WHITELIST = (
+    'my-rest-api-postgre.herokuapp.com',
+    '127.0.0.1',
+    'localhost:4200',
+    'localhost:8000',
+    'sirb0rab0g1.github.io',
+)
+
+CSRF_TRUSTED_ORIGINS = (
+    'my-rest-api-postgre.herokuapp.com',
+    '127.0.0.1',
+    'localhost:4200',
+    'localhost:8000',
+    'sirb0rab0g1.github.io',
+)
+
+CORS_ALLOW_METHODS = (
+    'GET',
+    'POST',
+)
+
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
