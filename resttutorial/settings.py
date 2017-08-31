@@ -107,7 +107,7 @@ WSGI_APPLICATION = 'resttutorial.wsgi.application'
 #     }
 # }
 # DATABASE_CONFIG = 'postgres://admin:password@127.0.0.1:5432/restpostgre'
-DATABASE_CONFIG = 'postgres://gjesczcdhfbdju:c0bbee38f900a4f4522483984eb8beee73f8e18ee1be2aeb1731380257f0b701@ec2-23-21-197-175.compute-1.amazonaws.com:5432/d5b66atnmcj65v'
+DATABASE_CONFIG = 'postgres://rtimelketxiiwn:23ddbbaa4191b9d9ba9438bb60c150fb5af30fae3f17689b6a190126d754be3a@ec2-107-22-167-179.compute-1.amazonaws.com:5432/db5l3a4e8tra8h'
 DATABASE_CONN_MAX_AGE = 0  # No persistent connections.
 
 DATABASES = {'default': dj_database_url.config(default=DATABASE_CONFIG)}
