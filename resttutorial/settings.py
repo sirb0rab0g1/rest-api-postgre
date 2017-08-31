@@ -99,11 +99,11 @@ WSGI_APPLICATION = 'resttutorial.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db5l3a4e8tra8h',
-        'USER': 'rtimelketxiiwn',
-        'PASSWORD': '23ddbbaa4191b9d9ba9438bb60c150fb5af30fae3f17689b6a190126d754be3a',
-        'HOST': 'ec2-107-22-167-179.compute-1.amazonaws.com',
-        'PORT': '5432',
+        'NAME': 'restpostgre',
+        'USER': 'admin',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -113,7 +113,7 @@ DATABASES = {
 
 # DATABASES = {'default': dj_database_url.config(default=DATABASE_CONFIG)}
 # DATABASES['default']['CONN_MAX_AGE'] = DATABASE_CONN_MAX_AGE
-
+DATABASES['default'] =  dj_database_url.config()
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
