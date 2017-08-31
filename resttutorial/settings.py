@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'resttutorial.wsgi.application'
 #         'HOST': 'localhost',
 #         'PORT': '',
 #     }
-# }
+# }#
 
 DATABASE_CONFIG = 'postgres://gjesczcdhfbdju:c0bbee38f900a4f4522483984eb8beee73f8e18ee1be2aeb1731380257f0b701@ec2-23-21-197-175.compute-1.amazonaws.com:5432/d5b66atnmcj65v'
 DATABASE_CONN_MAX_AGE = 0  # No persistent connections.
