@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -95,16 +96,21 @@ WSGI_APPLICATION = 'resttutorial.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'restpostgre',
-        'USER': 'admin',
-        'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'restpostgre',
+#         'USER': 'admin',
+#         'PASSWORD': 'password',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+DATABASE_CONFIG = 'postgres://gjesczcdhfbdju:c0bbee38f900a4f4522483984eb8beee73f8e18ee1be2aeb1731380257f0b701@ec2-23-21-197-175.compute-1.amazonaws.com:5432/d5b66atnmcj65v'
+DATABASE_CONN_MAX_AGE = 0  # No persistent connections.
+
+DATABASES = {'default': dj_database_url.config(default=DATABASE_CONFIG)}
+DATABASES['default']['CONN_MAX_AGE'] = DATABASE_CONN_MAX_AGE
 
 
 # Password validation
