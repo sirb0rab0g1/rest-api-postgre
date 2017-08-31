@@ -102,8 +102,8 @@ DATABASES = {
         'NAME': 'restpostgre',
         'USER': 'admin',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
-        'PORT': '',
+        'HOST': '203.177.60.235',
+        'PORT': '5432',
     }
 }
 
