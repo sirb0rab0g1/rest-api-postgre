@@ -99,10 +99,10 @@ WSGI_APPLICATION = 'resttutorial.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'restpostgre',
-        'USER': 'admin',
-        'PASSWORD': 'password',
-        'HOST': '203.177.60.235',
+        'NAME': 'db5l3a4e8tra8h',
+        'USER': 'rtimelketxiiwn',
+        'PASSWORD': '23ddbbaa4191b9d9ba9438bb60c150fb5af30fae3f17689b6a190126d754be3a',
+        'HOST': 'ec2-107-22-167-179.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
