@@ -17,18 +17,22 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
-from quickstart import views
-from basicinformation import views
+
+from quickstart.views import (
+    UserViewSet,
+    GroupViewSet
+)
 
 
 from rest_framework.routers import DefaultRouter
 
 from basicinformation.views import (
     InformationViewSet,
+    delete_user
 )
 
 router = routers.DefaultRouter()
-router.register(r'information', views.InformationViewSet)
+router.register(r'binfo', InformationViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.

@@ -5,6 +5,13 @@ from django.contrib.auth.models import User
 from rest_framework import viewsets
 from basicinformation.serializers import InformationSerializer
 
+
+from rest_framework.decorators import (
+    api_view,
+    detail_route,
+    permission_classes,
+)
+
 from .models import (
     Information
 )
@@ -27,3 +34,8 @@ class InformationViewSet(viewsets.ModelViewSet):
     permission_classes = [
         permissions.AllowAny,
     ]
+
+@api_view(['POST'])
+def delete_user(request):
+    user = User.objects.get(id=request.data['id'])
+    return Response({'success': True}, status=status.HTTP_200_OK)
