@@ -12,8 +12,7 @@ router = DefaultRouter()
 router.register(r'info', InformationViewSet)
 
 urlpatterns = [
-    
     url(r'^', include(router.urls)),
-    url(r'^delete-user$', delete_user, name='delete_user'),
+    url(r'^delete-user/$', delete_user, name='delete_user'),
 ]
 

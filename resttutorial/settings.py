@@ -154,6 +154,7 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:4200',
     'localhost:8000',
     'sirb0rab0g1.github.io',
+    'http://localhost:4200',
 )
 
 CSRF_TRUSTED_ORIGINS = (
@@ -162,11 +163,13 @@ CSRF_TRUSTED_ORIGINS = (
     'localhost:4200',
     'localhost:8000',
     'sirb0rab0g1.github.io',
+    'http://localhost:4200',
 )
 
 CORS_ALLOW_METHODS = (
     'GET',
     'POST',
+    'PUT'
 )
 
 CORS_ALLOW_HEADERS = (
