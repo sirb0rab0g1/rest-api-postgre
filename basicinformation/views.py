@@ -55,7 +55,7 @@ def information_list(request, format=None):
             return Response(serializer_class.data, status=status.HTTP_201_CREATED)
         return Response(serializer_class.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'DELETE'])
+@api_view(['GET','PUT', 'DELETE'])
 def information_request(request, pk, format=None):
     """
     Retrieve, update or delete a snippet instance.
@@ -69,6 +69,13 @@ def information_request(request, pk, format=None):
         serializer = InformationSerializer(queryset)
         return Response(serializer.data)
     
+    elif request.method == 'PUT':
+        serializer = InformationSerializer(queryset, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     elif request.method == 'DELETE':
         queryset.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
