@@ -28,19 +28,16 @@ from rest_framework.routers import DefaultRouter
 
 from basicinformation.views import (
     InformationViewSet,
-    information_list,
-    information_request
 )
 
-router = routers.DefaultRouter()
 
+router = routers.DefaultRouter()
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),
-    url(r'^information-list/$', information_list),
-    url(r'^information-request/(?P<pk>[0-9]+)$', information_request),
+    url(r'^info/', include('basicinformation.urls')),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

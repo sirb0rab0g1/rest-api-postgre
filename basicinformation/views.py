@@ -13,6 +13,7 @@ from rest_framework.decorators import (
     permission_classes,
 )
 
+from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import (
@@ -27,55 +28,57 @@ from rest_framework import (
     status,
     viewsets,
 )
+
+from django.http import Http404
         
 class InformationViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows groups to be viewed or edited.
     """
+
     queryset = Information.objects.all()
     serializer_class = InformationSerializer
-    permission_classes = [
-        permissions.AllowAny,
-    ]
 
-@api_view(['GET', 'POST'])
-def information_list(request, format=None):
+class information_list(APIView):
     """
     List all snippets, or create a new snippet.
     """
-    if request.method == 'GET':
+    def get(self, request, format=None):
         queryset = Information.objects.all()
         serializer_class = InformationSerializer(queryset, many=True)
         return Response(serializer_class.data)
 
-    elif request.method == 'POST':
+    def post(self, request, format=None):
         serializer_class = InformationSerializer(data=request.data)
         if serializer_class.is_valid():
             serializer_class.save()
             return Response(serializer_class.data, status=status.HTTP_201_CREATED)
         return Response(serializer_class.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET','PUT', 'DELETE'])
-def information_request(request, pk, format=None):
+class information_request(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
-    try:
-        queryset = Information.objects.get(pk=pk)
-    except Information.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+    def get_object(self, pk):
+        try:
+            return Information.objects.get(pk=pk)
+        except Information.DoesNotExist:
+            raise Http404
 
-    if request.method == 'GET':
-        serializer = InformationSerializer(queryset)
+    def get(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = InformationSerializer(snippet)
         return Response(serializer.data)
-    
-    elif request.method == 'PUT':
-        serializer = InformationSerializer(queryset, data=request.data)
+        
+    def put(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        serializer = InformationSerializer(snippet, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        queryset.delete()
+    
+    def delete(self, request, pk, format=None):
+        snippet = self.get_object(pk)
+        snippet.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
