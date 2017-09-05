@@ -6,16 +6,16 @@ from rest_framework import renderers
 from .models import Information
 from .views import (
     InformationViewSet,
-    
-    information_list,
-    information_request
+    InformationListView,
+    InformationListRequest
 )
+
 router = DefaultRouter()
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^information-list/$', information_list.as_view()),
-    url(r'^information-request/(?P<pk>[0-9]+)/$', information_request.as_view()),
+    url(r'^information-list/$', InformationListView.as_view()),
+    url(r'^information-request/(?P<pk>[0-9]+)/$', InformationListRequest.as_view()),
 ]
 
 

@@ -39,7 +39,7 @@ class InformationViewSet(viewsets.ModelViewSet):
     queryset = Information.objects.all()
     serializer_class = InformationSerializer
 
-class information_list(APIView):
+class InformationListView(APIView):
     """
     List all snippets, or create a new snippet.
     """
@@ -55,7 +55,7 @@ class information_list(APIView):
             return Response(serializer_class.data, status=status.HTTP_201_CREATED)
         return Response(serializer_class.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class information_request(APIView):
+class InformationListRequest(APIView):
     """
     Retrieve, update or delete a snippet instance.
     """
