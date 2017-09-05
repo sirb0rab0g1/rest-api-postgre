@@ -26,9 +26,11 @@ SECRET_KEY = '2^ze-df4ad^$o4dc#+mncx2)fb9r@9f_-frs_1s_sd6=g##ws4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    '*'
-]
+ALLOWED_HOSTS = ['*']
+
+ADMINS = (
+    ('admin', 'kentoyfueconcillo@gmail.com'),
+)
 
 # Application definition
 
@@ -154,8 +156,6 @@ CORS_ORIGIN_WHITELIST = (
     'localhost:4200',
     'localhost:8000',
     'sirb0rab0g1.github.io',
-    'http://localhost:4200',
-    'http://localhost:8000',
 )
 
 CSRF_TRUSTED_ORIGINS = (
@@ -164,8 +164,6 @@ CSRF_TRUSTED_ORIGINS = (
     'localhost:4200',
     'localhost:8000',
     'sirb0rab0g1.github.io',
-    'http://localhost:4200',
-    'http://localhost:8000',
 )
 
 CORS_ALLOW_METHODS = (
