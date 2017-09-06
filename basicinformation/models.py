@@ -9,5 +9,6 @@ class Information(models.Model):
     middle_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     location = models.CharField(max_length=140)
+    
     def __str__(self):
         return self.first_name

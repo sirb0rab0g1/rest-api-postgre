@@ -41,9 +41,14 @@ class InformationViewSet(viewsets.ModelViewSet):
     ]
     
     @detail_route(methods=['GET'])
-    def highlight(self, request, *args, **kwargs):
+    def personal_info(self, request, *args, **kwargs):
         snippet = self.get_object()
-        return Response(snippet.first_name)
+        data = {
+            'first_name':snippet.first_name,
+            'middle_name':snippet.middle_name,
+            'last_name':snippet.last_name
+        }
+        return Response(data)
 
 # class InformationListView(APIView):
 #     """
