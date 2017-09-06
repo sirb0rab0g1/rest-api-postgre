@@ -6,8 +6,6 @@ from rest_framework import renderers
 from .models import Information
 from .views import (
     InformationViewSet,
-    # InformationListView,
-    # InformationListRequest
 )
 
 

@@ -44,6 +44,7 @@ class InformationViewSet(viewsets.ModelViewSet):
     def personal_info(self, request, *args, **kwargs):
         snippet = self.get_object()
         data = {
+            'id':snippet.id,
             'first_name':snippet.first_name,
             'middle_name':snippet.middle_name,
             'last_name':snippet.last_name
