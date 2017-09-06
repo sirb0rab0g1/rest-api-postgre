@@ -32,7 +32,8 @@ from basicinformation.views import (
 
 
 router = routers.DefaultRouter()
-# router.register(r'information', InformationViewSet)
+
+router.register(r'displayed-information', InformationViewSet)
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
 
