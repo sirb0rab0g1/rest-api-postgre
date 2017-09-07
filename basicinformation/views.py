@@ -41,7 +41,7 @@ class InformationViewSet(viewsets.ModelViewSet):
     ]
     
     @detail_route(methods=['GET'])
-    def personal_info(self, request, *args, **kwargs):
+    def get_details(self, request, pk=None):
         snippet = self.get_object()
         data = {
             'id':snippet.id,

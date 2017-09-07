@@ -21,15 +21,11 @@ information_request = InformationViewSet.as_view({
     'patch': 'partial_update',
     'delete': 'destroy'
 })
-information_detail = InformationViewSet.as_view({
-    'get': 'personal_info'
-})
 
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^personal/$', information_list, name='information_list'),
     url(r'^personal/(?P<pk>[0-9]+)/$', information_request, name='information_request'),
-    url(r'^personal/(?P<pk>[0-9]+)/details/$', information_detail, name='information_detail'),
 ]
 
 
