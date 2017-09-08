@@ -33,8 +33,6 @@ from basicinformation.views import (
 
 router = routers.DefaultRouter()
 
-router.register(r'displayed-information', InformationViewSet)
-
 urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'^admin/', admin.site.urls),

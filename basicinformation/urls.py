@@ -10,22 +10,10 @@ from .views import (
 
 
 router = DefaultRouter()
-
-information_list = InformationViewSet.as_view({
-    'get': 'list',
-    'post': 'create'
-})
-information_request = InformationViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'patch': 'partial_update',
-    'delete': 'destroy'
-})
+router.register(r'personal', InformationViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
-    url(r'^personal/$', information_list, name='information_list'),
-    url(r'^personal/(?P<pk>[0-9]+)/$', information_request, name='information_request'),
 ]
 
 
