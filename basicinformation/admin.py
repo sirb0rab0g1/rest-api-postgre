@@ -9,5 +9,5 @@ from .models import (
 @admin.register(Information)
 class InformationAdmin(admin.ModelAdmin):
     list_display = [
-        'first_name','last_name','location'
+        'first_name','last_name','location','age','email','creation_date'
     ]
