@@ -168,6 +168,7 @@ CORS_ORIGIN_WHITELIST = (
     'my-rest-api-postgre.herokuapp.com',
     '127.0.0.1',
     'localhost:4200',
+    'localhost:8080',
     'localhost:8000',
     'sirb0rab0g1.github.io',
 )
@@ -176,6 +177,7 @@ CSRF_TRUSTED_ORIGINS = (
     'my-rest-api-postgre.herokuapp.com',
     '127.0.0.1',
     'localhost:4200',
+    'localhost:8080',
     'localhost:8000',
     'sirb0rab0g1.github.io',
 )

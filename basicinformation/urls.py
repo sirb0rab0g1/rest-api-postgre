@@ -5,7 +5,6 @@ from .views import (
     InformationViewSet,
 )
 
-
 router = DefaultRouter()
 router.register(r'personal', InformationViewSet)
 

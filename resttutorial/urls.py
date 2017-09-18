@@ -18,18 +18,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework import routers
 
-from quickstart.views import (
-    UserViewSet,
-    GroupViewSet
-)
-
-
 from rest_framework.routers import DefaultRouter
-
-from basicinformation.views import (
-    InformationViewSet,
-)
-
 
 router = routers.DefaultRouter()
 
