@@ -17,14 +17,15 @@ class InformationSerializer(serializers.ModelSerializer):
                         queryset=Information.objects.all(),
                         message='True')
                 ],
-            },
-            'first_name': {
-                'validators': [
-                    UniqueValidator(
-                        queryset=Information.objects.all(),
-                        message='True')
-                ],
             }
+            # ,
+            # 'first_name': {
+            #     'validators': [
+            #         UniqueValidator(
+            #             queryset=Information.objects.all(),
+            #             message='True')
+            #     ],
+            # }
         }
 
         fields = '__all__'
